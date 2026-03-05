@@ -51,5 +51,4 @@ tomogram_simulation/*/tomos/
 *.sav
 *.mrc
 *.rec
-.gitignore
 git.sh
