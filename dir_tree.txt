@@ -1,0 +1,85 @@
+├── assets
+│   └── CryoDeRec_Logo.jpg
+├── cryoDeRec_env.yaml
+├── git.sh
+├── noise_modeling
+│   ├── crSim_apply_ctf_to_tilts.py
+│   ├── crSim_apply_noise_to_tilts_snr.py
+│   ├── empiar_10499_data
+│   │   └── polnet_test_20260304_emd11999_bin8_1024
+│   ├── noise_synthesizer
+│   │   ├── crSim_generate_noise_with_GAN.py
+│   │   ├── logs
+│   │   ├── models
+│   │   ├── pre_trained
+│   │   ├── synthesized_noise_output
+│   │   ├── train_Sim_GenNoise.sh
+│   │   └── utils
+│   ├── pipeline_noise_modeling.sh
+│   ├── tlt
+│   │   └── out_tangs_60_60_3.tlt
+│   ├── tomo3d
+│   └── utils
+│       ├── ctf.py
+│       └── __pycache__
+├── README.md
+├── tomogram_simulation
+│   ├── data
+│   │   ├── empiar_10499_pns
+│   │   └── temp
+│   ├── data_generated
+│   │   └── polnet_test_20260304_emd11999_bin8_1024
+│   ├── pipeline_tomo_simu.sh
+│   ├── polnet
+│   │   ├── affine.py
+│   │   ├── __init__.py
+│   │   ├── lio.py
+│   │   ├── lrandom.py
+│   │   ├── membrane.py
+│   │   ├── network.py
+│   │   ├── polymer.py
+│   │   ├── poly.py
+│   │   ├── __pycache__
+│   │   ├── stomo.py
+│   │   ├── tem.py
+│   │   ├── utils.py
+│   │   └── _version.py
+│   ├── step1_all_features_of_proteins.py
+│   ├── step2_refine_simulated_dentsity_mask.py
+│   ├── step3_recon3d.py
+│   └── tomo3d
+├── training
+│   ├── denoise3d_missingRec.py
+│   ├── model_training
+│   │   └── ribosome
+│   ├── pre_trained
+│   │   ├── model_hiv
+│   │   ├── model_nucleosome
+│   │   └── model_ribosome
+│   ├── test_data
+│   │   ├── EM10499_TS01.mrc
+│   │   ├── EM10499_TS05.mrc
+│   │   ├── EM10643_HIV.mrc
+│   │   ├── EMPIAR_10045_bin4.mrc
+│   │   ├── EMPIAR_10045.mrc
+│   │   └── nucleosome_20190120_44.rec
+│   ├── test_results
+│   │   ├── hiv_pretrain
+│   │   ├── nucleosome_pretrain
+│   │   ├── ribosome_pretrain
+│   │   ├── ribosome_pretrain_80s
+│   │   └── ribosome_pretrain_m0.5
+│   ├── train_and_test.sh
+│   ├── training_simulated_data
+│   │   ├── empiar_10499
+│   │   ├── train_hiv
+│   │   ├── train_nucleosome
+│   │   └── train_ribosome
+│   └── utils
+│       ├── fourier.py
+│       ├── missing_wedge.py
+│       ├── mrc.py
+│       ├── __pycache__
+│       └── rotation_tomo.py
+└── utils
+    └── tomo3d
