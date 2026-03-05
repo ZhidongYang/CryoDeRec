@@ -1,0 +1,31 @@
+name: cryoDeRec
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - numpy=1.26
+  - scipy=1.11
+  - pandas=2.2
+  - scikit-image=0.25
+  - scikit-learn=1.4
+  - matplotlib=3.8
+  - pillow
+  - h5py
+  - tqdm
+  - mrcfile=1.5
+  - vtk=9.3
+  - ipython
+  - jupyter_core
+  - jupyter_client
+  - pyfftw
+  - numba
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu121
+      - torch==2.5.1
+      - torchvision==0.20.1
+      - torchaudio==2.5.1
+      - topaz-em==0.2.5
+      - tensorflow==2.18.0
+      - loguru==0.7.3

@@ -1,0 +1,55 @@
+# Python cache / bytecode
+__pycache__/
+
+
+# Virtual / Conda / venv
+.env/
+.venv/
+venv/
+env/
+*.conda-env/
+*.egg-info/
+dist/
+build/
+
+# IDE / editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs / checkpoints
+logs/
+checkpoints/
+runs/
+tensorboard/
+
+# Data and large outputs
+data/
+data_*/ 
+data_generated/
+*_data/
+results/
+output/
+outputs/
+synthesized_noise_output/
+
+# Project-specific large dirs
+noise_modeling/noise_synthesizer/synthesized_noise_output/
+tomogram_simulation/10499_data/
+tomogram_simulation/*/tem/
+tomogram_simulation/*/tomos/
+
+# Misc
+*.mrc~
+*.pkl
+*.sav
+*.mrc
+*.rec
+
+git.sh
