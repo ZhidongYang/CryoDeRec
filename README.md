@@ -254,26 +254,10 @@ Notes:
 - `-m`: path to the saved model for inference (e.g. `cryoderec_model_best.sav`).
 - `-o`: output directory for denoised volumes.
 
----
-
-## 7. Ready-to-use Simulated and Real Data
-
-To simplify usage, we also provide:
-
-- A set of **pre-simulated training data** (noisy + clean tomograms) under:
-  - `CryoDeRec/training/training_simulated_data/...`
-- A tested **noise patch volume**:
-  - `CryoDeRec/noise_modeling/noise_synthesizer/synthesized_noise_output/noise_tilts_1024_1024_41.mrc`
-- (Optionally) real EMPIAR tomograms for direct evaluation (you can add links here when you publish).
-
-With these, you can:
-
-1. Skip Stage 1 and Stage 2, and go directly to Stage 3 to train or test CryoDeRec.
-2. Or directly run inference on real tomograms using the provided pre-trained model.
 
 ---
 
-## 8. Acknowledgements
+## 7. Acknowledgements
 
 - **PolNet** – Python package for generating synthetic datasets of the cellular context for cryo-electron tomography  
   GitHub: [https://github.com/anmartinezs/polnet](https://github.com/anmartinezs/polnet)  
