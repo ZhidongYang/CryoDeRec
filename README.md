@@ -21,10 +21,28 @@ conda env create -f cryoDeRec_env.yaml
 conda activate cryoDeRec
 ```
 
+---
+
+## 2. Data and Pre-trained Models
+
+To simplify usage and allow you to skip the simulation stages, we provide pre-simulated training datasets, noise patches, and pre-trained CryoDeRec models. 
+
+### Download Links
+You can download all necessary data and model weights from either of the following platforms:
+* **Google Drive**: [Link to Google Drive](https://drive.google.com/drive/folders/1hKsn2aQuys2m8eEtd9l8aLVpmJQo8qG2) 
+* **Baidu Netdisk**: [Link to Baidu Netdisk](https://pan.baidu.com/s/1r5YfF7zgyKYQ-bkglQYJZA?pwd=x72n) 
+
+### Directory Placement
+After downloading, please extract and organize the files into your project directory. Please refer to the provided `data_model_tree.txt` for the expected directory structure.
+
+
+With these files correctly placed, you can:
+1. Skip Stage 1 and Stage 2, and go directly to Stage 3 to train or test CryoDeRec.
+2. Directly run inference on real tomograms using the provided pre-trained models.
 
 ---
 
-## 2. End-to-End Pipeline Overview
+## 3. End-to-End Pipeline Overview
 
 The full pipeline is split into three main stages:
 
@@ -42,9 +60,9 @@ Below we describe each stage in detail.
 
 ---
 
-## 3. Stage 1 – Tomogram Simulation (`tomogram_simulation`)
+## 4. Stage 1 – Tomogram Simulation (`tomogram_simulation`)
 
-### 3.1 Running the simulation pipeline
+### 4.1 Running the simulation pipeline
 
 From the project root:
 
@@ -54,7 +72,7 @@ bash pipeline_tomo_simu.sh
 ```
 
 
-### 3.2 Choosing the macromolecular structure
+### 4.2 Choosing the macromolecular structure
 
 The simulated cellular context is controlled by the protein configuration in `step1_all_features_of_proteins.py`, in particular:
 
@@ -67,7 +85,7 @@ To adapt the simulation to a specific real dataset, you should:
 
 The philosophy and configuration style follow **PolNet** ([polnet GitHub](https://github.com/anmartinezs/polnet)), which can be used as detailed reference for structural modeling.
 
-### 3.3 Key outputs of the simulation
+### 4.3 Key outputs of the simulation
 
 After `pipeline_tomo_simu.sh` finishes, the important tomograms are:
 
@@ -80,14 +98,14 @@ After `pipeline_tomo_simu.sh` finishes, the important tomograms are:
 
 ---
 
-## 4. Stage 2 – Noise Modeling and Noisy Tomogram Generation
+## 5. Stage 2 – Noise Modeling and Noisy Tomogram Generation
 
 Stage 2 has two parts:
 
 1. Generate realistic noise patches with a GAN.
 2. Apply CTF and noise to the tilt series and reconstruct a noisy tomogram.
 
-### 4.1 Noise patch generation (`noise_synthesizer`)
+### 5.1 Noise patch generation (`noise_synthesizer`)
 
 From the project root:
 
@@ -134,7 +152,7 @@ This has shape `1024 × 1024 × 41` and will be used to inject noise into the ti
 
 > We also provide a ready-to-use noise patch file `noise_tilts_1024_1024_41.mrc` that you can use directly without re-running the GAN.
 
-### 4.2 CTF + noise + reconstruction (`pipeline_noise_modeling.sh`)
+### 5.2 CTF + noise + reconstruction (`pipeline_noise_modeling.sh`)
 
 From the project root:
 
@@ -155,9 +173,9 @@ This `final_tomogram_m_0.3_rotx.mrc` will be used as the **noisy training input*
 
 ---
 
-## 5. Stage 3 – CryoDeRec Training and Inference (`training`)
+## 6. Stage 3 – CryoDeRec Training and Inference (`training`)
 
-### 5.1 Organizing training data
+### 6.1 Organizing training data
 
 We train CryoDeRec using paired (noisy, clean) tomograms:
 
@@ -179,7 +197,7 @@ We train CryoDeRec using paired (noisy, clean) tomograms:
 
 You can add more pairs `tomo2.mrc`, `tomo3.mrc`, etc., following the same naming convention to increase dataset size.
 
-### 5.2 Training (`train_and_test.sh`)
+### 6.2 Training (`train_and_test.sh`)
 
 From the project root:
 
@@ -216,7 +234,7 @@ Important arguments:
 - `-mw`: missing wedge angle (e.g. 60°).
 - `--masked-loss-weight`: weight of the loss inside the missing wedge.
 
-### 5.3 Inference (`train_and_test.sh`)
+### 6.3 Inference (`train_and_test.sh`)
 
 The same script also contains an inference command, for example:
 
@@ -238,7 +256,7 @@ Notes:
 
 ---
 
-## 6. Ready-to-use Simulated and Real Data
+## 7. Ready-to-use Simulated and Real Data
 
 To simplify usage, we also provide:
 
@@ -255,7 +273,7 @@ With these, you can:
 
 ---
 
-## 7. Acknowledgements
+## 8. Acknowledgements
 
 - **PolNet** – Python package for generating synthetic datasets of the cellular context for cryo-electron tomography  
   GitHub: [https://github.com/anmartinezs/polnet](https://github.com/anmartinezs/polnet)  
